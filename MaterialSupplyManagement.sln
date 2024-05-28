@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialSupplyManagement", "MaterialSupplyManagement\MaterialSupplyManagement.csproj", "{16E387C4-B87F-4F5F-91C4-8ECB13492CF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{088A177E-E7A2-45CE-A6D2-D17D7E55EE3D}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{01C8B15F-AAD6-4317-88A0-84DBF7054F56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16E387C4-B87F-4F5F-91C4-8ECB13492CF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E387C4-B87F-4F5F-91C4-8ECB13492CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E387C4-B87F-4F5F-91C4-8ECB13492CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E387C4-B87F-4F5F-91C4-8ECB13492CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C8B15F-AAD6-4317-88A0-84DBF7054F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C8B15F-AAD6-4317-88A0-84DBF7054F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C8B15F-AAD6-4317-88A0-84DBF7054F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C8B15F-AAD6-4317-88A0-84DBF7054F56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
