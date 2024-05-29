@@ -21,7 +21,7 @@ public static class SqlQueries
 	";
 	
 	public static string CreateInventoryItemTable => $@"
-		CREATE TABLE IF NOT EXISTS ""{RawMaterialsTableName}""
+		CREATE TABLE IF NOT EXISTS ""{InventoryItemTableName}""
         (            
             ""{ColumnNames.Name}"" TEXT NOT NULL,
             ""{ColumnNames.Type}"" TEXT NOT NULL,
@@ -30,8 +30,10 @@ public static class SqlQueries
             ""{ColumnNames.Number}"" INT,
             ""{ColumnNames.Price}"" DOUBLE PRECISION,
             ""{ColumnNames.TotalPrice}"" DOUBLE PRECISION,
+            ""{ColumnNames.ManufacturerName}"" TEXT NOT NULL,
+        	""{ColumnNames.ManufacturerAddress}"" TEXT NOT NULL
         );
-        CREATE INDEX IF NOT EXISTS {ColumnNames.Type}_index ON {RawMaterialsTableName} ({ColumnNames.Type});
-        CREATE INDEX IF NOT EXISTS {ColumnNames.Name}_index ON {RawMaterialsTableName} ({ColumnNames.Name});
+        CREATE INDEX IF NOT EXISTS {ColumnNames.Type}_index ON {InventoryItemTableName} ({ColumnNames.Type});
+        CREATE INDEX IF NOT EXISTS {ColumnNames.Name}_index ON {InventoryItemTableName} ({ColumnNames.Name});
 	";
 }

@@ -245,6 +245,86 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\enums.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\enums.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\enums.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\enums.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\enums.min.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\enums.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\enums.min.js.flow",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\enums.min.js.flow"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\enums.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\enums.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-base.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-base.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-base.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-base.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-base.min.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-base.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-base.min.js.flow",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-base.min.js.flow"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-base.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-base.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-lite.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-lite.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-lite.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-lite.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-lite.min.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-lite.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-lite.min.js.flow",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-lite.min.js.flow"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper-lite.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper-lite.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper.min.js",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper.min.js.flow",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper.min.js.flow"
+    },
+    {
+      "Id": "C:\\Users\\Andre\\RiderProjects\\MaterialSupplyManagement\\WebApi\\wwwroot\\lib\\popperjs\\popper.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\popperjs\\popper.min.js.map"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApi.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

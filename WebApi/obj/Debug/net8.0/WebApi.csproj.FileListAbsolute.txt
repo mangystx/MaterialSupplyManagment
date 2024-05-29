@@ -231,3 +231,4 @@ C:\Users\Andre\RiderProjects\MaterialSupplyManagement\WebApi\obj\Debug\net8.0\re
 C:\Users\Andre\RiderProjects\MaterialSupplyManagement\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\Andre\RiderProjects\MaterialSupplyManagement\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\Andre\RiderProjects\MaterialSupplyManagement\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+C:\Users\Andre\RiderProjects\MaterialSupplyManagement\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json

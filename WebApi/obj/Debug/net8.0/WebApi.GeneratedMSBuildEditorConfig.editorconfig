@@ -26,12 +26,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Andre\RiderProjects\MaterialSupplyManagement\WebApi
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/MaterialSupply/AddInventoryItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxTdXBwbHlcQWRkSW52ZW50b3J5SXRlbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/MaterialSupply/AddRawMaterial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxTdXBwbHlcQWRkUmF3TWF0ZXJpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/MaterialSupply/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxTdXBwbHlcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/Shared/_ValidationScriptsPartial.cshtml]

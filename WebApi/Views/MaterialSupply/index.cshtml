@@ -1,0 +1,95 @@
+@{
+    ViewData["Title"] = "Material Supply Management";
+}
+
+<div>
+    <h2>Material Supply Management</h2>
+</div>
+
+<div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link @(ViewBag.ActiveTab == "#raw-materials-tab" ? "active" : "")" id="raw-materials-tab" data-bs-toggle="tab" data-bs-target="#raw-materials" type="button" role="tab" aria-controls="raw-materials" aria-selected="true">Raw Materials</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link @(ViewBag.ActiveTab == "#inventory-items-tab" ? "active" : "")" id="inventory-items-tab" data-bs-toggle="tab" data-bs-target="#inventory-items" type="button" role="tab" aria-controls="inventory-items" aria-selected="false">Inventory Items</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade @(ViewBag.ActiveTab == "#raw-materials-tab" ? "show active" : "")" id="raw-materials" role="tabpanel" aria-labelledby="raw-materials-tab">
+            <h3>Raw Materials</h3>
+            @await Html.PartialAsync("AddRawMaterial")
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Price per kg</th>
+                    <th>Weight tons</th>
+                    <th>Total price</th>
+                    <th>Last update</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var rawMaterial in ViewBag.RawMaterials)
+                {
+                    <tr>
+                        <td>@rawMaterial.Name</td>
+                        <td>@rawMaterial.Type</td>
+                        <td>@rawMaterial.PricePerKg</td>
+                        <td>@rawMaterial.WeightTons</td>
+                        <td>@rawMaterial.TotalPrice</td>
+                        <td>@rawMaterial.LastUpdate</td>
+                        <td>
+                            <button class="btn btn-warning">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade @(ViewBag.ActiveTab == "#inventory-items-tab" ? "show active" : "")" id="inventory-items" role="tabpanel" aria-labelledby="inventory-items-tab">
+            <h3>Inventory Items</h3>
+            @await Html.PartialAsync("AddInventoryItem")
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Number</th>
+                    <th>Price</th>
+                    <th>Total price</th>
+                    <th>Manufacturer</th>
+                    <th>Last update</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var inventoryItem in ViewBag.InventoryItems)
+                {
+                    <tr>
+                        <td>@inventoryItem.Name</td>
+                        <td>@inventoryItem.Type</td>
+                        <td>@inventoryItem.Number</td>
+                        <td>@inventoryItem.Price</td>
+                        <td>@inventoryItem.TotalPrice</td>
+                        <td>@inventoryItem.Manufacturer.Name</td>
+                        <td>@inventoryItem.LastUpdate</td>
+                        <td>
+                            <button class="btn btn-warning">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/popperjs/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+}

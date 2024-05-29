@@ -1,0 +1,44 @@
+@model WebApi.Models.InventoryItemViewModel
+
+<form method="post" asp-action="AddInventoryItem">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type" class="control-label"></label>
+        <input asp-for="Type" class="form-control" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Number" class="control-label"></label>
+        <input asp-for="Number" class="form-control" />
+        <span asp-validation-for="Number" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label">Price per 1</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ManufacturerName" class="control-label">Manufacturer Name</label>
+        <input asp-for="ManufacturerName" class="form-control" />
+        <span asp-validation-for="ManufacturerName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ManufacturerAddress" class="control-label">Manufacturer Address</label>
+        <input asp-for="ManufacturerAddress" class="form-control" />
+        <span asp-validation-for="ManufacturerAddress" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Inventory Item</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

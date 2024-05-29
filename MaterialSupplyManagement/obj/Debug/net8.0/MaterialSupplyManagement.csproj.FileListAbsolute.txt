@@ -10,3 +10,4 @@ C:\Users\Andre\RiderProjects\MaterialSupplyManagement\MaterialSupplyManagement\o
 C:\Users\Andre\RiderProjects\MaterialSupplyManagement\MaterialSupplyManagement\obj\Debug\net8.0\refint\MaterialSupplyManagement.dll
 C:\Users\Andre\RiderProjects\MaterialSupplyManagement\MaterialSupplyManagement\obj\Debug\net8.0\MaterialSupplyManagement.pdb
 C:\Users\Andre\RiderProjects\MaterialSupplyManagement\MaterialSupplyManagement\obj\Debug\net8.0\ref\MaterialSupplyManagement.dll
+C:\Users\Andre\RiderProjects\MaterialSupplyManagement\MaterialSupplyManagement\obj\Debug\net8.0\MaterialSupplyManagement.sourcelink.json

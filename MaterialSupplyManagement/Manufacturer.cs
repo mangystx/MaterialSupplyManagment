@@ -1,12 +1,26 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MaterialSupplyManagement.DAL;
 
 namespace MaterialSupplyManagement;
 
-public class Manufacturer(string name, string address) : IInfoProvider
+public class Manufacturer : IInfoProvider
 {
-	[Column(ColumnNames.ManufacturerName)] public string Name { get; private set; } = name;
-	[Column(ColumnNames.ManufacturerAddress)] public string Address { get; private set; } = address;
+	public Manufacturer() { }
+	
+	public Manufacturer(string name, string address)
+	{
+		Name = name;
+		Address = address;
+	}
+	
+	[Column(ColumnNames.ManufacturerName)] 
+	[Required(ErrorMessage = "Manufacturer name is required")]
+	public string Name { get; set; }
+	
+	[Column(ColumnNames.ManufacturerAddress)]
+	[Required(ErrorMessage = "Manufacturer address is required")]
+	public string Address { get; set; }
 
 	public string GetInfoString() => $"Manufacturer: {Name}, Address: {Address}";
 }

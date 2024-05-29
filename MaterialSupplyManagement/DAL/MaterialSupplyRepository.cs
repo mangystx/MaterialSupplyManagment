@@ -14,9 +14,35 @@ public class MaterialSupplyRepository
         _connectionString = settings.ConnectionString;
         _logger = logger;
         GlobalConfiguration.Setup().UsePostgreSql();
+        
+        CreateDataStore().Wait();
     }
 
-    public async Task<List<RawMaterial>> GetAllRawMaterials(string type)
+    public async Task CreateDataStore()
+    {
+        await using var connection = new NpgsqlConnection(_connectionString);
+        connection.Open();
+        
+        await connection.ExecuteQueryAsync(SqlQueries.CreateInventoryItemTable + SqlQueries.CreateRawMaterialsTable);
+    }
+    
+    public async Task<List<RawMaterial>> GetAllRawMaterials()
+    {
+        try
+        {
+            await using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+            
+            return (await connection.QueryAllAsync<RawMaterial>(SqlQueries.RawMaterialsTableName)).ToList();
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, $"{ex}");
+            throw;
+        }
+    }
+    
+    public async Task<List<RawMaterial>> GetAllRawMaterialsByType(string type)
     {
         try
         {
@@ -96,14 +122,32 @@ public class MaterialSupplyRepository
         }
     }
 
-    public async Task<List<InventoryItem>> GetAllInventoryItems(string type)
+    public async Task<List<InventoryItem>> GetAllInventoryItems()
     {
         try
         {
             await using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
             
-            return (await connection.QueryAsync<InventoryItem>(SqlQueries.InventoryItemTableName, m => m.Type == type)).ToList();
+            return (await connection.QueryAllAsync<InventoryItemDbRecord>(SqlQueries.InventoryItemTableName))
+                .Select(DbRecordToInventoryItem).ToList();
+        }
+        catch (Exception ex)
+        {
+            _logger.Error(ex, $"{ex}");
+            throw;
+        }
+    }
+
+    public async Task<List<InventoryItem>> GetAllInventoryItemsByTime(string type)
+    {
+        try
+        {
+            await using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+            
+            return (await connection.QueryAsync<InventoryItemDbRecord>(SqlQueries.InventoryItemTableName, m => m.Type == type))
+                .Select(DbRecordToInventoryItem).ToList();
         }
         catch (Exception ex)
         {
@@ -119,7 +163,8 @@ public class MaterialSupplyRepository
             await using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
             
-            return (await connection.QueryAsync<InventoryItem>(SqlQueries.InventoryItemTableName, m => m.Name == name)).FirstOrDefault();
+            return DbRecordToInventoryItem((await connection.QueryAsync<InventoryItemDbRecord>(SqlQueries.InventoryItemTableName,
+                m => m.Name == name)).First());
         }
         catch (Exception ex)
         {
@@ -135,7 +180,7 @@ public class MaterialSupplyRepository
             await using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
             
-            await connection.InsertAsync(SqlQueries.InventoryItemTableName, inventoryItem);
+            await connection.InsertAsync(SqlQueries.InventoryItemTableName, InventoryItemToDbRecord(inventoryItem));
         }
         catch (Exception ex)
         {
@@ -151,7 +196,8 @@ public class MaterialSupplyRepository
             await using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
             
-            await connection.UpdateAsync(SqlQueries.InventoryItemTableName, inventoryItem, e => e.Name == inventoryItem.Name);
+            await connection.UpdateAsync(SqlQueries.InventoryItemTableName, InventoryItemToDbRecord(inventoryItem), 
+                e => e.Name == inventoryItem.Name);
         }
         catch (Exception ex)
         {
@@ -167,12 +213,34 @@ public class MaterialSupplyRepository
             await using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
             
-            await connection.DeleteAsync(SqlQueries.InventoryItemTableName, inventoryItem);
+            await connection.DeleteAsync(SqlQueries.InventoryItemTableName, InventoryItemToDbRecord(inventoryItem));
         }
         catch (Exception ex)
         {
             _logger.Error(ex, $"Error deleting inventory item with name {inventoryItem.GetInfoString()}");
             throw;
         }
+    }
+    
+    private InventoryItemDbRecord InventoryItemToDbRecord(InventoryItem inventoryItem)
+    {
+        return new InventoryItemDbRecord
+        {
+            Name = inventoryItem.Name,
+            Type = inventoryItem.Type,
+            Description = inventoryItem.Description,
+            LastUpdate = inventoryItem.LastUpdate,
+            Number = inventoryItem.Number,
+            Price = inventoryItem.Price,
+            TotalPrice = inventoryItem.TotalPrice,
+            ManufacturerName = inventoryItem.Manufacturer.Name,
+            ManufacturerAddress = inventoryItem.Manufacturer.Address
+        };
+    }
+    
+    private InventoryItem DbRecordToInventoryItem(InventoryItemDbRecord dbRecord)
+    {
+        return new InventoryItem(dbRecord.Name, dbRecord.Type, dbRecord.Description, dbRecord.Number, 
+            dbRecord.Price, new Manufacturer(dbRecord.ManufacturerName, dbRecord.ManufacturerAddress));
     }
 }
