@@ -5,9 +5,11 @@ namespace WebApi.Models;
 public class InventoryItemViewModel
 {
 	[Required(ErrorMessage = "Name is required")]
+	[Length(1, 32, ErrorMessage = "Too long or too short item name")]
     public string Name { get; set; }
 
     [Required(ErrorMessage = "Type is required")]
+    [Length(1, 32, ErrorMessage = "Too long or too short type name")]
     public string Type { get; set; }
 
     public string Description { get; set; }

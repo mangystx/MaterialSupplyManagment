@@ -8,7 +8,7 @@ public static class SqlQueries
 	public static string CreateRawMaterialsTable => $@"
         CREATE TABLE IF NOT EXISTS ""{RawMaterialsTableName}""
         (            
-            ""{ColumnNames.Name}"" TEXT NOT NULL,
+            ""{ColumnNames.Name}"" TEXT NOT NULL PRIMARY KEY,
             ""{ColumnNames.Type}"" TEXT NOT NULL,
             ""{ColumnNames.Description}"" TEXT,
             ""{ColumnNames.LastUpdate}"" TIMESTAMPTZ NOT NULL,
@@ -23,7 +23,7 @@ public static class SqlQueries
 	public static string CreateInventoryItemTable => $@"
 		CREATE TABLE IF NOT EXISTS ""{InventoryItemTableName}""
         (            
-            ""{ColumnNames.Name}"" TEXT NOT NULL,
+            ""{ColumnNames.Name}"" TEXT NOT NULL PRIMARY KEY,
             ""{ColumnNames.Type}"" TEXT NOT NULL,
             ""{ColumnNames.Description}"" TEXT,
             ""{ColumnNames.LastUpdate}"" TIMESTAMPTZ NOT NULL,

@@ -17,6 +17,7 @@
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade @(ViewBag.ActiveTab == "#raw-materials-tab" ? "show active" : "")" id="raw-materials" role="tabpanel" aria-labelledby="raw-materials-tab">
+            <br/>
             <h3>Raw Materials</h3>
             @await Html.PartialAsync("AddRawMaterial")
             <table class="table">
@@ -42,8 +43,11 @@
                         <td>@rawMaterial.TotalPrice</td>
                         <td>@rawMaterial.LastUpdate</td>
                         <td>
-                            <button class="btn btn-warning">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editRawMaterialModal" onclick="populateEditRawMaterialModal('@rawMaterial.Name', '@rawMaterial.Type', '@rawMaterial.Description', '@rawMaterial.PricePerKg', '@rawMaterial.WeightTons')">Edit</button>
+                            <form asp-action="DeleteRawMaterial" method="post" style="display:inline;">
+                                <input type="hidden" name="name" value="@rawMaterial.Name"/>
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 }
@@ -51,6 +55,7 @@
             </table>
         </div>
         <div class="tab-pane fade @(ViewBag.ActiveTab == "#inventory-items-tab" ? "show active" : "")" id="inventory-items" role="tabpanel" aria-labelledby="inventory-items-tab">
+            <br/>
             <h3>Inventory Items</h3>
             @await Html.PartialAsync("AddInventoryItem")
             <table class="table">
@@ -78,8 +83,11 @@
                         <td>@inventoryItem.Manufacturer.Name</td>
                         <td>@inventoryItem.LastUpdate</td>
                         <td>
-                            <button class="btn btn-warning">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editInventoryItemModal" onclick="populateEditInventoryItemModal('@inventoryItem.Name', '@inventoryItem.Type', '@inventoryItem.Description', '@inventoryItem.Number', '@inventoryItem.Price', '@inventoryItem.Manufacturer.Name', '@inventoryItem.Manufacturer.Address')">Edit</button>
+                            <form asp-action="DeleteInventoryItem" method="post" style="display:inline;">
+                                <input type="hidden" name="name" value="@inventoryItem.Name"/>
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 }
@@ -89,7 +97,29 @@
     </div>
 </div>
 
+@await Html.PartialAsync("EditRawMaterial")
+@await Html.PartialAsync("EditInventoryItem")
+
 @section Scripts {
     <script src="~/lib/popperjs/popper.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function populateEditRawMaterialModal(name, type, description, pricePerKg, weightTons) {
+            document.querySelector('#editRawMaterialModal input[name="Name"]').value = name;
+            document.querySelector('#editRawMaterialModal input[name="Type"]').value = type;
+            document.querySelector('#editRawMaterialModal textarea[name="Description"]').value = description;
+            document.querySelector('#editRawMaterialModal input[name="PricePerKg"]').value = pricePerKg;
+            document.querySelector('#editRawMaterialModal input[name="WeightTons"]').value = weightTons;
+        }
+
+        function populateEditInventoryItemModal(name, type, description, number, price, manufacturerName, manufacturerAddress) {
+            document.querySelector('#editInventoryItemModal input[name="Name"]').value = name;
+            document.querySelector('#editInventoryItemModal input[name="Type"]').value = type;
+            document.querySelector('#editInventoryItemModal textarea[name="Description"]').value = description;
+            document.querySelector('#editInventoryItemModal input[name="Number"]').value = number;
+            document.querySelector('#editInventoryItemModal input[name="Price"]').value = price;
+            document.querySelector('#editInventoryItemModal input[name="ManufacturerName"]').value = manufacturerName;
+            document.querySelector('#editInventoryItemModal input[name="ManufacturerAddress"]').value = manufacturerAddress;
+        }
+    </script>
 }

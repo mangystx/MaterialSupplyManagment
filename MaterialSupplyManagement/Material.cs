@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MaterialSupplyManagement.DAL;
 
@@ -10,6 +11,7 @@ public abstract class Material : IInfoProvider
     private string _description;
 
     [Column(ColumnNames.Name)]
+    [Length(1, 32, ErrorMessage = "Too long or too short name")]
     public string Name
     {
         get => _name;
@@ -21,6 +23,7 @@ public abstract class Material : IInfoProvider
     }
 
     [Column(ColumnNames.Type)]
+    [Length(1, 32, ErrorMessage = "Too long or too short type name")]
     public string Type
     {
         get => _type;

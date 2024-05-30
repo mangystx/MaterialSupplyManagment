@@ -41,22 +41,6 @@ public class MaterialSupplyRepository
             throw;
         }
     }
-    
-    public async Task<List<RawMaterial>> GetAllRawMaterialsByType(string type)
-    {
-        try
-        {
-            await using var connection = new NpgsqlConnection(_connectionString);
-            connection.Open();
-            
-            return (await connection.QueryAsync<RawMaterial>(SqlQueries.RawMaterialsTableName, m => m.Type == type)).ToList();
-        }
-        catch (Exception ex)
-        {
-            _logger.Error(ex, $"Error fetching all raw materials of type {type}");
-            throw;
-        }
-    }
 
     public async Task<RawMaterial?> GetRawMaterial(string name)
     {
@@ -135,23 +119,6 @@ public class MaterialSupplyRepository
         catch (Exception ex)
         {
             _logger.Error(ex, $"{ex}");
-            throw;
-        }
-    }
-
-    public async Task<List<InventoryItem>> GetAllInventoryItemsByTime(string type)
-    {
-        try
-        {
-            await using var connection = new NpgsqlConnection(_connectionString);
-            connection.Open();
-            
-            return (await connection.QueryAsync<InventoryItemDbRecord>(SqlQueries.InventoryItemTableName, m => m.Type == type))
-                .Select(DbRecordToInventoryItem).ToList();
-        }
-        catch (Exception ex)
-        {
-            _logger.Error(ex, $"Error fetching all inventory items of type {type}");
             throw;
         }
     }

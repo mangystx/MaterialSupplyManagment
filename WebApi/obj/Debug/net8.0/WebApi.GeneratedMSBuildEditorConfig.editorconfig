@@ -34,6 +34,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxTdXBwbHlcQWRkUmF3TWF0ZXJpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/MaterialSupply/EditInventoryItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxTdXBwbHlcRWRpdEludmVudG9yeUl0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/MaterialSupply/EditRawMaterial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxTdXBwbHlcRWRpdFJhd01hdGVyaWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Andre/RiderProjects/MaterialSupplyManagement/WebApi/Views/MaterialSupply/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYWxTdXBwbHlcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
