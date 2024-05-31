@@ -26,12 +26,22 @@ public class MaterialSupplyController : Controller
     [HttpPost]
     public async Task<IActionResult> AddRawMaterial(RawMaterial rawMaterial)
     {
+        var rawMaterials =  await _repository.GetAllRawMaterials();
+        
         if (ModelState.IsValid)
         {
-            await _repository.AddRawMaterial(rawMaterial);
+            if (rawMaterials.Any(r => r.Name == rawMaterial.Name))
+            {
+                ModelState.AddModelError("Name", "A raw material with this name already exists.");
+            }
+            else
+            {
+                await _repository.AddRawMaterial(rawMaterial);
+                rawMaterials.Add(rawMaterial);
+            }
         }
         
-        ViewBag.RawMaterials = await _repository.GetAllRawMaterials();
+        ViewBag.RawMaterials = rawMaterials;
         ViewBag.InventoryItems = await _repository.GetAllInventoryItems();
         ViewBag.ActiveTab = "#raw-materials-tab";
         
@@ -41,13 +51,24 @@ public class MaterialSupplyController : Controller
     [HttpPost]
     public async Task<IActionResult> AddInventoryItem(InventoryItemViewModel inventoryItem)
     {
+        var inventoryItems = await _repository.GetAllInventoryItems();
+        
         if (ModelState.IsValid)
-        { 
-            await _repository.AddInventoryItem(ViewModelToInventoryItem(inventoryItem));
+        {
+            if (inventoryItems.Any(i => i.Name == inventoryItem.Name))
+            {
+                ModelState.AddModelError("Name", "A raw material with this name already exists.");
+            }
+            else
+            {
+                var item = ViewModelToInventoryItem(inventoryItem);
+                await _repository.AddInventoryItem(item);
+                inventoryItems.Add(item);
+            }
         }
         
         ViewBag.RawMaterials = await _repository.GetAllRawMaterials();
-        ViewBag.InventoryItems = await _repository.GetAllInventoryItems();
+        ViewBag.InventoryItems = inventoryItems;
         ViewBag.ActiveTab = "#inventory-items-tab";
         
         return View("Index");
